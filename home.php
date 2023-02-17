@@ -98,6 +98,16 @@ include 'src/components/wishlist_cart.php';
               <img src="lib/images/home-img-1.png" alt="">
             </div>
             <div class="content">
+              <h1><?php 
+              try {
+                $model = mysqli_query($conn, "SELECT * FROM `products`");
+                while ($tes = mysqli_fetch_assoc($model)) {
+                  print_r($tes);
+                }
+              } catch (\Throwable $th) {
+                echo $th;
+              }
+              ?></h1>
               <span>Diskon hingga 30%</span>
               <h3>Smartphone Edisi Terbaru</h3>
               <a href="shop.php" class="btn">Belanja</a>
