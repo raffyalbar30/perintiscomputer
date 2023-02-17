@@ -1,6 +1,6 @@
 <?php
 
-include 'components/connect.php';
+include 'src/components/connect.php';
 
 session_start();
 
@@ -99,7 +99,7 @@ if(isset($_POST['update_qty'])){
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <?php include 'components/user_header.php'; ?>
+  <?php include 'src/components/user_header.php'; ?>
 
   <section class="products shopping-cart">
 
@@ -182,7 +182,7 @@ if(isset($_POST['update_qty'])){
 
 
 
-  <?php include 'components/footer.php'; ?>
+  <?php include 'src/components/footer.php'; ?>
 
   <script src="js/script.js"></script>
 
