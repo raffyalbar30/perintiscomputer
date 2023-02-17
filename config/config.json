@@ -1,5 +1,8 @@
 {
     "db_connect": {
-        
+        "host": "localhost",
+        "user": "root",
+        "pass": "tesdoang",
+        "db_name": "project"
     }
 }
