@@ -80,7 +80,7 @@ if(isset($_SESSION['user_id'])){
     <div class="row">
 
       <div class="image">
-        <img src="images/about-img.svg" alt="">
+        <img src="lib/images/about-img.svg" alt="">
       </div>
 
       <div class="content">
@@ -102,7 +102,7 @@ if(isset($_SESSION['user_id'])){
     <h1 class="heading"><span>Colaboration</span></h1>
     <div class="box-container">
       <div class="box">
-        <img src="images/smk.png" alt="">
+        <img src="lib/images/smk.png" alt="">
         <div class="share">
           <a href="#" class="fab fa-facebook-f"></a>
           <a href="#" class="fab fa-tiktok"></a>
@@ -113,7 +113,7 @@ if(isset($_SESSION['user_id'])){
       </div>
 
       <div class="box">
-        <img src="images/smk.png" alt="">
+        <img src="lib/images/smk.png" alt="">
         <div class="share">
           <a href="#" class="fab fa-facebook-f"></a>
           <a href="#" class="fab fa-tiktok"></a>
@@ -124,7 +124,7 @@ if(isset($_SESSION['user_id'])){
       </div>
 
       <!-- <div class="box">
-        <img src="images/author-6.jpg" alt="">
+        <img src="lib/images/author-6.jpg" alt="">
         <div class="share">
           <a href="#" class="fab fa-facebook-f"></a>
           <a href="#" class="fab fa-tiktok"></a>
@@ -145,7 +145,7 @@ if(isset($_SESSION['user_id'])){
       <div class="swiper-wrapper">
 
         <div class="swiper-slide slide">
-          <img src="images/pic-1.png" alt="">
+          <img src="lib/images/pic-1.png" alt="">
           <h3>Rizki Saputra</h3>
           <div class="stars">
             <i class="fas fa-star"></i>
@@ -158,7 +158,7 @@ if(isset($_SESSION['user_id'])){
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-2.png" alt="">
+          <img src="lib/images/pic-2.png" alt="">
           <h3>Melani Maharani</h3>
           <div class="stars">
             <i class="fas fa-star"></i>
@@ -171,7 +171,7 @@ if(isset($_SESSION['user_id'])){
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-3.png" alt="">
+          <img src="lib/images/pic-3.png" alt="">
           <h3>Eko Widodo</h3>
           <div class="stars">
             <i class="fas fa-star"></i>
@@ -184,7 +184,7 @@ if(isset($_SESSION['user_id'])){
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-4.png" alt="">
+          <img src="lib/images/pic-4.png" alt="">
           <h3>Vina Setiani</h3>
           <div class="stars">
             <i class="fas fa-star"></i>
@@ -197,7 +197,7 @@ if(isset($_SESSION['user_id'])){
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-5.png" alt="">
+          <img src="lib/images/pic-5.png" alt="">
           <h3>Bambang</h3>
           <div class="stars">
             <i class="fas fa-star"></i>
@@ -210,7 +210,7 @@ if(isset($_SESSION['user_id'])){
         </div>
 
         <div class="swiper-slide slide">
-          <img src="images/pic-6.png" alt="">
+          <img src="lib/images/pic-6.png" alt="">
           <h3>Sindi Saputri</h3>
           <div class="stars">
             <i class="fas fa-star"></i>
