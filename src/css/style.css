@@ -285,7 +285,7 @@ section {
   height: 50vh;
   margin-top: 1.5rem;
   margin-left: 7.5%;
-  background: url(../../images/bg2.png) no-repeat;
+  background: url(../../lib/images/bg2.png) no-repeat;
   background-size: cover;
   background-position: center;
   border-radius: 1rem;
@@ -769,7 +769,7 @@ section {
 
 .home-contact {
   background-color: var(--black);
-  background: linear-gradient(var(--blue), var(--blue)), url(../../images/deal1.jpg) no-repeat;
+  background: linear-gradient(var(--blue), var(--blue)), url(../../lib/images/deal1.jpg) no-repeat;
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
