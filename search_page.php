@@ -111,7 +111,7 @@ include 'src/components/wishlist_cart.php';
         <input type="hidden" name="qty" value="1">
         <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
         <a href="quick_view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
-        <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
+        <img src="lib/images/product/<?= $fetch_product['image_01']; ?>" alt="">
         <div class="name"><?= $fetch_product['name']; ?></div>
         <div class="stars">
           <i class="fas fa-star"></i>
