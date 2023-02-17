@@ -1,15 +1,14 @@
 <?php
 
-$db_name = 'mysql:host=localhost;dbname=project';
-$user_name = 'root';
-$user_password = '';
+$str = file_get_contents('../../config/con.json');
+$json = json_decode($str, true);
+$dbConfig = $json['db_connect'];
 
-// $conn = new PDO($db_name, $user_name, $user_password);
-
-// $db_name = 'mysql:host=sql111.epizy.com;dbname=epiz_31988944_dustech';
-// $user_name = 'epiz_31988944';
-// $user_password = 'M5TiMTVvNe9';
-
-$conn = new PDO($db_name, $user_name, $user_password);
+try {
+    $conn = mysqli_connect($dbConfig['host'], $dbConfig['user'], $dbConfig['pass'], $dbConfig['db_name']);
+} catch (\Throwable $th) {
+    //throw $th;
+    echo $th;
+}
 
 ?>

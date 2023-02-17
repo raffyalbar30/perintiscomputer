@@ -1,6 +1,6 @@
 <?php
 
-include 'components/connect.php';
+include 'src/components/connect.php';
 
 session_start();
 
@@ -11,7 +11,7 @@ if(isset($_SESSION['user_id'])){
    header('location:user_login.php');
 };
 
-include 'components/wishlist_cart.php';
+include 'src/components/wishlist_cart.php';
 
 if(isset($_POST['delete'])){
    $wishlist_id = $_POST['wishlist_id'];
@@ -92,7 +92,7 @@ if(isset($_GET['delete_all'])){
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <?php include 'components/user_header.php'; ?>
+  <?php include 'src/components/user_header.php'; ?>
 
   <section class="products">
 
@@ -117,7 +117,7 @@ if(isset($_GET['delete_all'])){
         <input type="hidden" name="image" value="<?= $fetch_wishlist['image']; ?>">
         <input type="hidden" name="qty" value="1">
         <a href="quick_view.php?pid=<?= $fetch_wishlist['pid']; ?>" class="fas fa-eye"></a>
-        <img src="uploaded_img/<?= $fetch_wishlist['image']; ?>" alt="">
+        <img src="lib/images/product/<?= $fetch_wishlist['image']; ?>" alt="">
         <div class="name"><?= $fetch_wishlist['name']; ?></div>
         <div class="stars">
           <i class="fas fa-star"></i>
@@ -166,7 +166,7 @@ if(isset($_GET['delete_all'])){
 
 
 
-  <?php include 'components/footer.php'; ?>
+  <?php include 'src/components/footer.php'; ?>
 
   <script src="js/script.js"></script>
 
