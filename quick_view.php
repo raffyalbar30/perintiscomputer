@@ -1,6 +1,6 @@
 <?php
 
-include 'components/connect.php';
+include 'src/components/connect.php';
 
 session_start();
 
@@ -10,7 +10,7 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-include 'components/wishlist_cart.php';
+include 'src/components/wishlist_cart.php';
 
 ?>
 
@@ -79,7 +79,7 @@ include 'components/wishlist_cart.php';
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <?php include 'components/user_header.php'; ?>
+  <?php include 'src/components/user_header.php'; ?>
 
   <section class="quick-view">
 
@@ -102,12 +102,12 @@ include 'components/wishlist_cart.php';
       <div class="row">
         <div class="image-container">
           <div class="main-image">
-            <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
+            <img src="lib/images/product/<?= $fetch_product['image_01']; ?>" alt="">
           </div>
           <div class="sub-image">
-            <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
-            <img src="uploaded_img/<?= $fetch_product['image_02']; ?>" alt="">
-            <img src="uploaded_img/<?= $fetch_product['image_03']; ?>" alt="">
+            <img src="lib/images/product/<?= $fetch_product['image_01']; ?>" alt="">
+            <img src="lib/images/product/<?= $fetch_product['image_02']; ?>" alt="">
+            <img src="lib/images/product/<?= $fetch_product['image_03']; ?>" alt="">
           </div>
         </div>
         <div class="content">
@@ -180,7 +180,7 @@ include 'components/wishlist_cart.php';
 
 
 
-  <?php include 'components/footer.php'; ?>
+  <?php include 'src/components/footer.php'; ?>
 
   <script src="js/script.js"></script>
 
