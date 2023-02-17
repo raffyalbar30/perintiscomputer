@@ -113,19 +113,7 @@ if(isset($_POST['submit'])){
     </form>
 
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
   <?php include 'src/components/footer.php'; ?>
 
   <script src="src/js/script.js"></script>

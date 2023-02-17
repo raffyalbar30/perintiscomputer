@@ -59,7 +59,7 @@
             if($select_profile->rowCount() > 0){
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
          ?>
-      <img src="../images/profil.png" alt="">
+      <img src="../src/images/profil.png" alt="">
       <p><?= $fetch_profile["name"]; ?></p>
       <a href="update_user.php" class="btn">update profil</a>
       <!-- <div class="flex-btn">

@@ -59,7 +59,7 @@ if(isset($_POST['order'])){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
   <!-- custom css file link  -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="src/css/style.css">
 
   <!-- clear confirm form resubmission -->
   <script>
@@ -204,21 +204,9 @@ if(isset($_POST['order'])){
 
   </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
   <?php include 'src/components/footer.php'; ?>
 
-  <script src="js/script.js"></script>
+  <script src="src/js/script.js"></script>
 
 </body>
 
