@@ -1,0 +1,51 @@
+2 admin website perintis computer
+
+
+username admin : perinticomputer
+pasword admin  : perinticomputer135#@
+
+
+user admin programming : raffyalbar
+password admin programming : root
+
+
+untuk masuk ke dashbord admin bisa memakai 2 admin
+tersebut bisa menambahkan admin dan user kendali dalam sistem
+CRUD di admin panel nya 
+
+dan berbagai fitur dalam dashbord admin ini bisa CRUD dan untuk DB saya raffy sudah membuat external DB 
+agar website ini optimal dalam waktu yang lama untuk db nya yang {hpshop.zip} db external nya ...
+
+fitur CRUD add
+- admin 
+- product create / remove / edite 
+- see Message user ( pelanggan)
+- see playment and order 
+- see placed
+
+selebihnya bisa di lihat di dashbord...
+
+
+
+semoga dalam terbuat nya website hasil colaborasi smkn 1 banyusari dan perintis computer ini dapat membantu dalam pemasaran 
+product seperti laptop,computer,jasa service dan elektronik khusus nya secara online... dan membantu dalam media promosi pengenalan product 
+hasil siswa smkn 1 banyusari untuk peng aplikasian ke ahlian kami dalam jurusan Rekayasa prangkat lunak secara langsung di industri dalam kegiatan prakerin ini.
+terimakasih telah menerima kami siswa smkn 1 banyusari dalam kegiatan prakerin ini... semoga kita bisa bercolaborasi lagi dalam kegiatan prakerin ini terimakasih..
+
+
+
+
+created by M.Raffy Albar
+smkn 1 banyusari 
+
+
+anggota prakerin 
+
+-M.Raffy albar 
+-M. Lutfy mutahkhin 
+
+
+
+
+
+
