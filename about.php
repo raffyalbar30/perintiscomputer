@@ -1,6 +1,6 @@
 <?php
 
-include 'components/connect.php';
+include 'src/components/connect.php';
 
 session_start();
 
@@ -24,10 +24,10 @@ if(isset($_SESSION['user_id'])){
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
   <!-- font awesome cdn link  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/src/all.min.css">
 
   <!-- custom css file link  -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="src/css/style.css">
 
 
   <!-- google analytics -->
@@ -73,7 +73,7 @@ if(isset($_SESSION['user_id'])){
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <?php include 'components/user_header.php'; ?>
+  <?php include 'src/components/user_header.php'; ?>
 
   <section class="about">
 
@@ -234,11 +234,11 @@ if(isset($_SESSION['user_id'])){
 
 
 
-  <?php include 'components/footer.php'; ?>
+  <?php include 'src/components/footer.php'; ?>
 
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-  <script src="js/script.js"></script>
+  <script src="src/js/script.js"></script>
 
   <script>
   var swiper = new Swiper(".reviews-slider", {
