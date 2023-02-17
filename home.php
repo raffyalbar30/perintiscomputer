@@ -1,6 +1,6 @@
 <?php
 
-include 'components/connect.php';
+include 'src/components/connect.php';
 
 session_start();
 
@@ -10,7 +10,7 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-include 'components/wishlist_cart.php';
+include 'src/components/wishlist_cart.php';
 
 ?>
 
@@ -95,7 +95,7 @@ include 'components/wishlist_cart.php';
 
           <div class="swiper-slide slide">
             <div class="image">
-              <img src="images/home-img-1.png" alt="">
+              <img src="lib/images/home-img-1.png" alt="">
             </div>
             <div class="content">
               <span>Diskon hingga 30%</span>
@@ -106,7 +106,7 @@ include 'components/wishlist_cart.php';
 
           <div class="swiper-slide slide">
             <div class="image">
-              <img src="images/elektronik.png" alt="">
+              <img src="lib/images/elektronik.png" alt="">
             </div>
             <div class="content">
               <span>Tersedia berbagai elektronik</span>
@@ -117,7 +117,7 @@ include 'components/wishlist_cart.php';
 
           <div class="swiper-slide slide">
             <div class="image">
-              <img src="images/laptop1.png" alt="">
+              <img src="lib/images/laptop1.png" alt="">
             </div>
             <div class="content">
               <span>Diskon Hingga 50%</span>
@@ -159,7 +159,7 @@ include 'components/wishlist_cart.php';
         <input type="hidden" name="qty" value="1">
         <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
         <a href="quick_view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
-        <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
+        <img src="lib/images/product/<?= $fetch_product['image_01']; ?>" alt="">
         <div class="name"><?= $fetch_product['name']; ?></div>
         <div class="stars">
           <i class="fas fa-star"></i>
@@ -213,7 +213,7 @@ include 'components/wishlist_cart.php';
         <input type="hidden" name="qty" value="1">
         <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
         <a href="quick_view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
-        <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
+        <img src="lib/images/product/<?= $fetch_product['image_01']; ?>" alt="">
         <div class="name"><?= $fetch_product['name']; ?></div>
         <div class="stars">
           <i class="fas fa-star"></i>
@@ -284,7 +284,7 @@ include 'components/wishlist_cart.php';
 
 
 
-  <?php include 'components/footer.php'; ?>
+  <?php include 'src/components/footer.php'; ?>
 
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
