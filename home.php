@@ -31,7 +31,7 @@ include 'src/components/wishlist_cart.php';
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
   <!-- custom css file link  -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="src/css/style.css">
 
   <!-- clear confirm form resubmission -->
   <script>
@@ -288,7 +288,7 @@ include 'src/components/wishlist_cart.php';
 
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-  <script src="js/script.js"></script>
+  <script src="src/js/script.js"></script>
 
   <script>
   var swiper = new Swiper(".home-slider", {
