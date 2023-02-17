@@ -1,6 +1,6 @@
 <?php
 
-include '../components/connect.php';
+include '../src/components/connect.php';
 
 session_start();
 
@@ -39,7 +39,7 @@ if(isset($_GET['delete'])){
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-  <link rel="stylesheet" href="../css/admin_style.css">
+  <link rel="stylesheet" href="../src/css/admin_style.css">
 
   <!-- clear confirm form resubmission -->
   <script>
@@ -52,7 +52,7 @@ if(isset($_GET['delete'])){
 
 <body>
 
-  <?php include '../components/admin_header.php'; ?>
+  <?php include '../src/components/admin_header.php'; ?>
 
   <section class="orders">
 
@@ -100,19 +100,8 @@ if(isset($_GET['delete'])){
   </section>
 
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="../js/admin_script.js"></script>
+  
+  <script src="../src/js/admin_script.js"></script>
 
 </body>
 

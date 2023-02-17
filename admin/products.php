@@ -1,6 +1,6 @@
 <?php
 
-include '../components/connect.php';
+include '../src/components/connect.php';
 
 session_start();
 
@@ -32,19 +32,19 @@ if(isset($_POST['add_product'])){
    $image_01 = filter_var($image_01, FILTER_SANITIZE_STRING);
    $image_size_01 = $_FILES['image_01']['size'];
    $image_tmp_name_01 = $_FILES['image_01']['tmp_name'];
-   $image_folder_01 = '../uploaded_img/'.$image_01;
+   $image_folder_01 = '../lib/images/product/'.$image_01;
 
    $image_02 = $_FILES['image_02']['name'];
    $image_02 = filter_var($image_02, FILTER_SANITIZE_STRING);
    $image_size_02 = $_FILES['image_02']['size'];
    $image_tmp_name_02 = $_FILES['image_02']['tmp_name'];
-   $image_folder_02 = '../uploaded_img/'.$image_02;
+   $image_folder_02 = '../lib/images/product/'.$image_02;
 
    $image_03 = $_FILES['image_03']['name'];
    $image_03 = filter_var($image_03, FILTER_SANITIZE_STRING);
    $image_size_03 = $_FILES['image_03']['size'];
    $image_tmp_name_03 = $_FILES['image_03']['tmp_name'];
-   $image_folder_03 = '../uploaded_img/'.$image_03;
+   $image_folder_03 = '../lib/images/product/'.$image_03;
 
    $select_products = $conn->prepare("SELECT * FROM `products` WHERE name = ?");
    $select_products->execute([$name]);
@@ -78,9 +78,9 @@ if(isset($_GET['delete'])){
    $delete_product_image = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
    $delete_product_image->execute([$delete_id]);
    $fetch_delete_image = $delete_product_image->fetch(PDO::FETCH_ASSOC);
-   unlink('../uploaded_img/'.$fetch_delete_image['image_01']);
-   unlink('../uploaded_img/'.$fetch_delete_image['image_02']);
-   unlink('../uploaded_img/'.$fetch_delete_image['image_03']);
+   unlink('../lib/images/product/'.$fetch_delete_image['image_01']);
+   unlink('../lib/images/product/'.$fetch_delete_image['image_02']);
+   unlink('../lib/images/product/'.$fetch_delete_image['image_03']);
    $delete_product = $conn->prepare("DELETE FROM `products` WHERE id = ?");
    $delete_product->execute([$delete_id]);
    $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE pid = ?");
@@ -105,7 +105,7 @@ if(isset($_GET['delete'])){
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-  <link rel="stylesheet" href="../css/admin_style.css">
+  <link rel="stylesheet" href="../src/css/admin_style.css">
 
   <!-- clear confirm form resubmission -->
   <script>
@@ -118,7 +118,7 @@ if(isset($_GET['delete'])){
 
 <body>
 
-  <?php include '../components/admin_header.php'; ?>
+  <?php include '../src/components/admin_header.php'; ?>
 
   <section class="add-products">
 
@@ -181,7 +181,7 @@ if(isset($_GET['delete'])){
          while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
    ?>
       <div class="box">
-        <img src="../uploaded_img/<?= $fetch_products['image_01']; ?>" alt="">
+        <img src="../lib/images/product/<?= $fetch_products['image_01']; ?>" alt="">
         <div class="name"><?= $fetch_products['name']; ?></div>
         <div class="produsen">by : <?= $fetch_products['produsen']; ?></div>
         <div class="price-before" style="text-decoration: line-through;"> Rp
@@ -207,14 +207,7 @@ if(isset($_GET['delete'])){
 
   </section>
 
-
-
-
-
-
-
-
-  <script src="../js/admin_script.js"></script>
+  <script src="../src/js/admin_script.js"></script>
 
 </body>
 
