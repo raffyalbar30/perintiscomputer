@@ -6,6 +6,7 @@ session_start();
 
 if(isset($_POST['submit'])){
 
+  try {
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
    $pass = sha1($_POST['pass']);
@@ -21,6 +22,10 @@ if(isset($_POST['submit'])){
    }else{
       $message[] = 'incorrect username or password!';
    }
+   
+  } catch (\Throwable $th) {
+    echo $th;
+  }
 
 }
 
