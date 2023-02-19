@@ -1,5 +1,4 @@
 <?php
-
 // if (!(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'))
 //     header("location:https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 $selflink = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -29,10 +28,17 @@ class Model {
     // Constructor
     function __construct ($dbConfig, $table) 
     {
-        $this->dbConfig = $dbConfig;
-        $this->table = $table;
-        $this->getConnecting();
-        $this->tableArray = $this->getTableArray();
+        try {
+
+            $this->dbConfig = $dbConfig;
+            $this->table = $table;
+            $this->getConnecting();
+            $this->tableArray = $this->getTableArray();
+
+        } catch (\Throwable $th) {
+            echo $th;
+
+        }
     }
 
     // Method
@@ -49,38 +55,77 @@ class Model {
     }
 
     // Method
-    function getTableArray () 
+    function getTableArray ($where = "") 
     {
-        $this->tmpArray = [];
-        $this->query = "SELECT * FROM " . $this->table;
-        $this->result = mysqli_query($this->conn, $this->query);
-        while ($this->tmpRow = mysqli_fetch_array($this->result))
-        {
-            array_push($this->tmpArray, $this->tmpRow);
-            $this->tableRow++;
+        try {
+
+            $this->tmpArray = [];
+            $this->query = "SELECT * FROM " . $this->table;
+            if (!empty($where))
+                $this->query = "SELECT * FROM " . $this->table . " WHERE " . $where;
+            $this->result = mysqli_query($this->conn, $this->query);
+            while ($this->tmpRow = mysqli_fetch_array($this->result))
+            {
+                array_push($this->tmpArray, $this->tmpRow);
+                $this->tableRow++;
+            }
+            return $this->tmpArray;
+
+        } catch (\Throwable $th) {
+            echo $th;
+
         }
-        return $this->tmpArray;
     }
 
     // Method
     function getTableFetch () 
     {
-        $this->query = "SELECT * FROM " . $this->table;
-        $this->result = mysqli_query($this->conn, $this->query);
+        try {
+
+            $this->query = "SELECT * FROM " . $this->table;
+            $this->result = mysqli_query($this->conn, $this->query);
+
+        } catch (\Throwable $th) {
+            echo $th;
+
+        }
     }
 
     // Method
     function getTableLine ($rule)
     {
-        $this->query = "SELECT * FROM " . $this->table . " WHERE " . $rule;
-        $this->result = mysqli_query($this->conn, $this->query);
-        return mysqli_fetch_array($this->result);
+        try {
+
+            $this->query = "SELECT * FROM " . $this->table . " WHERE " . $rule;
+            $this->result = mysqli_query($this->conn, $this->query);
+            return mysqli_fetch_array($this->result);
+
+        } catch (\Throwable $th) {
+            echo $th;
+
+        }
     }
 
     // Method
+    function deleteTableColoum ($rule)
+    {
+        try {
+
+            $this->query = "DELETE FROM " . $this->table . " WHERE " . $rule;
+            mysqli_query($this->conn, $this->query);
+
+        } catch (\Throwable $th) {
+            echo $th;
+
+        }
+    }
 
 }
 
+// Model
 $ModelProducts = new Model($dbConfig, "`products`");
+$ModelWishlist = new Model($dbConfig, "`wishlist`");
+$ModelUsers = new Model($dbConfig, "`users`");
+$ModelCart = new Model($dbConfig, "`cart`");
 
 ?>

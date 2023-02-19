@@ -10,7 +10,7 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-include 'src/components/wishlist_cart.php';
+// include 'src/components/wishlist_cart.php';
 
 ?>
 
@@ -146,9 +146,7 @@ include 'src/components/wishlist_cart.php';
 
       <?php
       if($ModelProducts->tableRow > 0){
-        $ModelProducts->getTableFetch();
-        for ($i = 0; $i < 8; $i++) {
-          $fetch_product = $ModelProducts->tableArray[$i];
+        foreach ($ModelProducts->tableArray as $fetch_product) {
       ?>
       <form action="" method="post" class="box">
         <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">

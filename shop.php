@@ -75,8 +75,7 @@ include 'src/components/wishlist_cart.php';
 <body>
 
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8ZMTQK" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8ZMTQK" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <?php include 'src/components/user_header.php'; ?>
@@ -88,10 +87,8 @@ include 'src/components/wishlist_cart.php';
     <div class="box-container">
 
       <?php
-     $select_products = $conn->prepare("SELECT * FROM `products`"); 
-     $select_products->execute();
-     if($select_products->rowCount() > 0){
-      while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
+      if($ModelProducts->tableRow > 0){
+        foreach ($ModelProducts->tableArray as $fetch_product) {
    ?>
       <form action="" method="post" class="box">
         <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
