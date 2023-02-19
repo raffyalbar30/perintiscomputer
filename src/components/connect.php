@@ -14,7 +14,7 @@ try {
     $conn = new PDO("mysql:host=" . $dbConfig['host'] . ";dbname=" . $dbConfig['db_name'], $dbConfig['user'], $dbConfig['pass']);
 
 } catch (PDOException $er) {
-    error_log($er, 0);
+    echo($er);
 
 }
 
