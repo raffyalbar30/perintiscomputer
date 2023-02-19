@@ -50,15 +50,11 @@
     <div class="profile">
       <?php          
             if(sizeof($ModelUsers->getTableColumn("id = " . $user_id)) > 0){
-            $fetch_profile = $ModelUsers->getTableColumn("id = " . $user_id);
+              $fetch_profile = $ModelUsers->getTableColumn("id = " . $user_id);
          ?>
       <img src="../src/images/profil.png" alt="">
       <p><?= $fetch_profile["name"]; ?></p>
       <a href="update_user.php" class="btn">update profil</a>
-      <!-- <div class="flex-btn">
-        <a href="user_register.php" class="option-btn">register</a>
-        <a href="user_login.php" class="option-btn">login</a>
-      </div> -->
       <a href="src/components/user_logout.php" class="delete-btn"
         onclick="return confirm('logout from the website?');">Keluar</a>
       <?php
