@@ -18,7 +18,7 @@ class Model {
     public $dbConfig;
     public $table;
     public $tableArray;
-    public $tableRow = 0;
+    public $tableRow;
     public $conn;
     public $result;
     protected $query;
@@ -34,6 +34,7 @@ class Model {
             $this->table = $table;
             $this->getConnecting();
             $this->tableArray = $this->getTableArray();
+            $this->tableRow = sizeof($this->tableArray);
 
         } catch (\Throwable $th) {
             echo $th;
@@ -55,7 +56,7 @@ class Model {
     }
 
     // Method
-    function getTableArray ($where = "") 
+    function getTableArray ($where = "", $limit = 0) 
     {
         try {
 
@@ -63,12 +64,12 @@ class Model {
             $this->query = "SELECT * FROM " . $this->table;
             if (!empty($where))
                 $this->query = "SELECT * FROM " . $this->table . " WHERE " . $where;
+            if (!empty($limit))
+                $this->query = "SELECT * FROM " . $this->table . " LIMIT " . $limit;
             $this->result = mysqli_query($this->conn, $this->query);
             while ($this->tmpRow = mysqli_fetch_array($this->result))
-            {
                 array_push($this->tmpArray, $this->tmpRow);
-                $this->tableRow++;
-            }
+            
             return $this->tmpArray;
 
         } catch (\Throwable $th) {
@@ -92,7 +93,7 @@ class Model {
     }
 
     // Method
-    function getTableLine ($rule)
+    function getTableColumn ($rule)
     {
         try {
 
@@ -107,7 +108,7 @@ class Model {
     }
 
     // Method
-    function deleteTableColoum ($rule)
+    function deleteTableColumn ($rule)
     {
         try {
 

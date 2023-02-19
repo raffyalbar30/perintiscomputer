@@ -146,7 +146,7 @@ if(isset($_SESSION['user_id'])){
 
       <?php
       if($ModelProducts->tableRow > 0){
-        foreach ($ModelProducts->tableArray as $fetch_product) {
+        foreach ($ModelProducts->getTableArray("", 8) as $fetch_product) {
       ?>
       <form action="" method="post" class="box">
         <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">

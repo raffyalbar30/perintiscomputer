@@ -15,11 +15,11 @@ include 'src/components/wishlist_cart.php';
 
 if(isset($_POST['delete'])){
    $wishlist_id = $_POST['wishlist_id'];
-   $ModelWishlist->deleteTableColoum("id = " . $wishlist_id);
+   $ModelWishlist->deleteTableColumn("id = " . $wishlist_id);
 }
 
 if(isset($_GET['delete_all'])){
-  $ModelWishlist->deleteTableColoum("user_id = " . $user_id);
+  $ModelWishlist->deleteTableColumn("user_id = " . $user_id);
    header('location:wishlist.php');
 }
 
