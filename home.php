@@ -10,7 +10,7 @@ if(isset($_SESSION['user_id'])){
    $user_id = '';
 };
 
-include 'src/components/wishlist_cart.php';
+// include 'src/components/wishlist_cart.php';
 
 ?>
 
@@ -145,10 +145,8 @@ include 'src/components/wishlist_cart.php';
     <div class="box-container">
 
       <?php
-      $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 8"); 
-      $select_products->execute();
-      if($select_products->rowCount() > 0){
-         while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
+      if($ModelProducts->tableRow > 0){
+        foreach ($ModelProducts->getTableArray("", 8) as $fetch_product) {
       ?>
       <form action="" method="post" class="box">
         <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
@@ -191,53 +189,6 @@ include 'src/components/wishlist_cart.php';
     </div>
 
   </section>
-
-
-  <!-- <section class="recomended">
-
-    <h1 class="heading"><span>Produk Recomended</span></h1>
-
-    <div class="box-container">
-
-      <?php
-      $select_products = $conn->prepare("SELECT * FROM `products` LIMIT 8"); 
-      $select_products->execute();
-      if($select_products->rowCount() > 0){
-        while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
-      ?>
-      <form action="" method="post" class="box">
-        <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
-        <input type="hidden" name="name" value="<?= $fetch_product['name']; ?>">
-        <input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
-        <input type="hidden" name="image" value="<?= $fetch_product['image_01']; ?>">
-        <input type="hidden" name="qty" value="1">
-        <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
-        <a href="quick_view.php?pid=<?= $fetch_product['id']; ?>" class="fas fa-eye"></a>
-        <img src="lib/images/product/<?= $fetch_product['image_01']; ?>" alt="">
-        <div class="name"><?= $fetch_product['name']; ?></div>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <div class="flex">
-          <div class="price"><span>Rp </span><?= number_format($fetch_product['price']) ; ?><span>,-</span></div>
-          
-        </div>
-        <input type="submit" value="add to cart" class="btn" name="add_to_cart">
-      </form>
-      <?php
-        }
-      }else{
-        echo '<p class="empty">no products found!</p>';
-      }
-      ?>
-
-    </div>
-
-  </section> -->
 
   <section class="deal" id="deal">
     <h1 class="heading"><span>Penawaran Terbaik</span></h1>
