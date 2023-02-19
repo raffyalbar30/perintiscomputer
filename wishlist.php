@@ -15,11 +15,13 @@ include 'src/components/wishlist_cart.php';
 
 if(isset($_POST['delete'])){
    $wishlist_id = $_POST['wishlist_id'];
-   $ModelWishlist->deleteTableColumn("id = " . $wishlist_id);
+   $delete_wishlist_item = $conn->prepare("DELETE FROM `wishlist` WHERE id = ?");
+   $delete_wishlist_item->execute([$wishlist_id]);
 }
 
 if(isset($_GET['delete_all'])){
-  $ModelWishlist->deleteTableColumn("user_id = " . $user_id);
+   $delete_wishlist_item = $conn->prepare("DELETE FROM `wishlist` WHERE user_id = ?");
+   $delete_wishlist_item->execute([$user_id]);
    header('location:wishlist.php');
 }
 
@@ -100,8 +102,10 @@ if(isset($_GET['delete_all'])){
 
       <?php
       $grand_total = 0;
-      if($ModelWishlist->tableRow > 0){
-         foreach ($ModelWishlist->tableArray as $fetch_wishlist) {
+      $select_wishlist = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ?");
+      $select_wishlist->execute([$user_id]);
+      if($select_wishlist->rowCount() > 0){
+         while($fetch_wishlist = $select_wishlist->fetch(PDO::FETCH_ASSOC)){
             $grand_total += $fetch_wishlist['price'];  
    ?>
       <form action="" method="post" class="box">
