@@ -17,16 +17,19 @@ if(isset($_POST['add_to_wishlist'])){
       $image = $_POST['image'];
       $image = filter_var($image, FILTER_SANITIZE_STRING);
 
-      $check_wishlist_numbers = $ModelWishlist->getTableArray("name = " . $name . " AND user_id = " . $user_id);
-      $check_cart_numbers = $ModelCart->getTableArray("name = " . $name . " AND user_id = " . $user_id);
+      $check_wishlist_numbers = $conn->prepare("SELECT * FROM `wishlist` WHERE name = ? AND user_id = ?");
+      $check_wishlist_numbers->execute([$name, $user_id]);
 
-      if(sizeof($check_wishlist_numbers) > 0){
+      $check_cart_numbers = $conn->prepare("SELECT * FROM `cart` WHERE name = ? AND user_id = ?");
+      $check_cart_numbers->execute([$name, $user_id]);
+
+      if($check_wishlist_numbers->rowCount() > 0){
          $message[] = 'already added to wishlist!';
-      }elseif(sizeof($check_cart_numbers) > 0){
+      }elseif($check_cart_numbers->rowCount() > 0){
          $message[] = 'already added to cart!';
       }else{
-         $ModelWishlist->addTableColumn("(user_id, pid, name, price_before, price, image) VALUES(" . $user_id . ", " . $pid . ", " . $name . ", " . $price_before . ", " . $price . ", " . $image . ")");
-
+         $insert_wishlist = $conn->prepare("INSERT INTO `wishlist`(user_id, pid, name, price_before, price, image) VALUES(?,?,?,?,?,?)");
+         $insert_wishlist->execute([$user_id, $pid, $name, $price_before, $price, $image]);
          $message[] = 'added to wishlist!';
       }
 
@@ -53,19 +56,23 @@ if(isset($_POST['add_to_cart'])){
       $qty = $_POST['qty'];
       $qty = filter_var($qty, FILTER_SANITIZE_STRING);
 
-      $check_cart_numbers = $ModelCart->getTableArray("name = " . $name . " AND user_id = " . $user_id);
+      $check_cart_numbers = $conn->prepare("SELECT * FROM `cart` WHERE name = ? AND user_id = ?");
+      $check_cart_numbers->execute([$name, $user_id]);
 
-      if(sizeof($check_cart_numbers) > 0){
+      if($check_cart_numbers->rowCount() > 0){
          $message[] = 'already added to cart!';
       }else{
 
-         $check_wishlist_numbers = $ModelWishlist->getTableArray("name = " . $name . " AND user_id = " . $user_id);
+         $check_wishlist_numbers = $conn->prepare("SELECT * FROM `wishlist` WHERE name = ? AND user_id = ?");
+         $check_wishlist_numbers->execute([$name, $user_id]);
 
-         if(sizeof($check_wishlist_numbers) > 0){
-            $ModelWishlist->deleteTableColumn("name = " . $name . " AND user_id = " . $user_id);
+         if($check_wishlist_numbers->rowCount() > 0){
+            $delete_wishlist = $conn->prepare("DELETE FROM `wishlist` WHERE name = ? AND user_id = ?");
+            $delete_wishlist->execute([$name, $user_id]);
          }
 
-         $ModelCart->addTableColumn("(user_id, pid, name, price_before, price, quantity, image) VALUES(" . $user_id . ", " . $pid . ", " . $name . ", " . $price_before . ", " . $price . ", " . $qty . ", " . $image . ")");
+         $insert_cart = $conn->prepare("INSERT INTO `cart`(user_id, pid, name, price_before, price, quantity, image) VALUES(?,?,?,?,?,?,?)");
+         $insert_cart->execute([$user_id, $pid, $name, $price_before, $price, $qty, $image]);
          $message[] = 'added to cart!';
          
       }
