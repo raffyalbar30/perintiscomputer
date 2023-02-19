@@ -37,13 +37,8 @@
 
     <div class="icons">
       <?php
-            $count_wishlist_items = $conn->prepare("SELECT * FROM `wishlist` WHERE user_id = ?");
-            $count_wishlist_items->execute([$user_id]);
-            $total_wishlist_counts = $count_wishlist_items->rowCount();
-
-            $count_cart_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
-            $count_cart_items->execute([$user_id]);
-            $total_cart_counts = $count_cart_items->rowCount();
+            $total_wishlist_counts = sizeof($ModelWishlist->getTableArray("user_id = " . $user_id));
+            $total_cart_counts = sizeof($ModelCart->getTableArray("user_id = " . $user_id));
          ?>
 
       <a href="search_page.php"><i class="fas fa-search"></i></a>
@@ -54,19 +49,13 @@
 
     <div class="profile">
       <?php          
-            $select_profile = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-            $select_profile->execute([$user_id]);
-            if($select_profile->rowCount() > 0){
-            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+            if(sizeof($ModelUsers->getTableColumn("id = " . $user_id)) > 0){
+              $fetch_profile = $ModelUsers->getTableColumn("id = " . $user_id);
          ?>
       <img src="../src/images/profil.png" alt="">
       <p><?= $fetch_profile["name"]; ?></p>
       <a href="update_user.php" class="btn">update profil</a>
-      <!-- <div class="flex-btn">
-        <a href="user_register.php" class="option-btn">register</a>
-        <a href="user_login.php" class="option-btn">login</a>
-      </div> -->
-      <a href="components/user_logout.php" class="delete-btn"
+      <a href="src/components/user_logout.php" class="delete-btn"
         onclick="return confirm('logout from the website?');">Keluar</a>
       <?php
             }else{
