@@ -12,6 +12,7 @@ if(!isset($admin_id)){
 
 if(isset($_POST['add_product'])){
 
+  try {
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
    $produsen = $_POST['produsen'];
@@ -53,8 +54,8 @@ if(isset($_POST['add_product'])){
       $message[] = 'product name already exist!';
    }else{
 
-      $insert_products = $conn->prepare("INSERT INTO `products`(name, produsen, price_before, details, price, image_01, image_02, image_03, page_url, tgl_waktu) VALUES(?,?,?,?,?,?,?,?,?,?)");
-      $insert_products->execute([$name, $produsen, $price_before, $details, $price, $image_01, $image_02, $image_03, $page_url, $time]);
+      $insert_products = $conn->prepare("INSERT INTO `products`(name, produsen, price_before, details, price, image_01, image_02, image_03) VALUES(?,?,?,?,?,?,?,?)");
+      $insert_products->execute([$name, $produsen, $price_before, $details, $price, $image_01, $image_02, $image_03]);
 
       if($insert_products){
          if($image_size_01 > 2000000 OR $image_size_02 > 2000000 OR $image_size_03 > 2000000){
@@ -68,7 +69,11 @@ if(isset($_POST['add_product'])){
 
       }
 
-   }  
+   } 
+   //code...
+ } catch (\Throwable $th) {
+   echo $th;
+ } 
 
 };
 
