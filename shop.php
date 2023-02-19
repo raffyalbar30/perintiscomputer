@@ -128,18 +128,6 @@ include 'src/components/wishlist_cart.php';
 
   </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
   <?php include 'src/components/footer.php'; ?>
 
   <script src="src/js/script.js"></script>

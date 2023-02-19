@@ -121,6 +121,20 @@ class Model {
         }
     }
 
+    // Method
+    function addTableColumn ($rule)
+    {
+        try {
+
+            $this->query = "INSERT INTO " . $this->table . $rule;
+            mysqli_query($this->conn, $this->query);
+
+        } catch (\Throwable $th) {
+            echo $th;
+
+        }
+    }
+
 }
 
 // Model
