@@ -16,12 +16,12 @@ Program aplikasi web ini berguna untuk melakukan penjualan komputer dan memonito
 
 Demi pemeliharaan dan pengembangan aplikasi yang lebih terjaga, kami membagi folder menjadi beberapa bagian:
 
-📕 `src`: folder untuk memelihara source code pada aplikasi
-&nbsp;&nbsp; 📗 `js`: folder khusus untuk memelihara source javascript
-&nbsp;&nbsp; 📗 `css`: folder khusus untuk memelihara source css
-&nbsp;&nbsp; 📗 `components`: sebagai widgets folder yang menampung bagian kecil web
-📕 `lib`: folder untuk tempat depedensi program
-&nbsp;&nbsp; 📗 `images`: folder untuk menyimpan gambar
-&nbsp;&nbsp;&nbsp;&nbsp; 📘 `product`: penyimpanan gambar product
-📕 `conf`: untuk mempermudahkan konfigurasi selama developing
-📕 `admin`: khusus halaman admin
+💷 `src`: folder untuk memelihara source code pada aplikasi<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; 💶 `js`: folder khusus untuk memelihara source javascript<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; 💶 `css`: folder khusus untuk memelihara source css<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; 💶 `components`: sebagai widgets folder yang menampung bagian kecil web<br/>
+💷 `lib`: folder untuk tempat depedensi program<br/>
+&nbsp;&nbsp;&nbsp;&nbsp; 💶 `images`: folder untuk menyimpan gambar<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 💵 `product`: penyimpanan gambar product<br/>
+💷 `conf`: untuk mempermudahkan konfigurasi selama developing<br/>
+💷 `admin`: khusus halaman admin
