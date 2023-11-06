@@ -7,6 +7,8 @@
 * **Date**: 7 Februari 2023
 * **Confidentiality**: Comercial
 
+![WhatsApp Image 2023-11-06 at 18 30 24](https://github.com/raffyalbar30/perintiscomputer/assets/124699099/c455259d-5927-4ef6-9376-be3d768676d0)
+
 ### <br/>Ⓒ SMK NEGERI BANYUSARI 1
 
 ## <br/>Deskripsi Singkat
